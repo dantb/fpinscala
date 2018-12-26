@@ -23,6 +23,7 @@ object List { // `List` companion object. Contains functions for creating and wo
     if (as.isEmpty) Nil
     else Cons(as.head, apply(as.tail: _*))
 
+  // result will be the RHS of the third case - 1+2=3
   val x = List(1,2,3,4,5) match {
     case Cons(x, Cons(2, Cons(4, _))) => x
     case Nil => 42
@@ -65,4 +66,9 @@ object List { // `List` companion object. Contains functions for creating and wo
   def foldLeft[A,B](l: List[A], z: B)(f: (B, A) => B): B = ???
 
   def map[A,B](l: List[A])(f: A => B): List[B] = ???
+
+  def main(args: Array[String]): Unit = {
+    require(x == 3)
+    println("Verified x == 3 in pattern matching exercise (3.1)")
+  }
 }
